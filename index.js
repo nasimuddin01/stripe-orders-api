@@ -1,5 +1,9 @@
 const stripe = require("stripe")(token, {
   apiVersion: "2020-08-27; orders_beta=v2",
+  // stripeConnectedAccountId must be provided for each request in the header
+  // this will set order.application to the stripeConnectedAccountId
+  // https://site-admin.stripe.com/docs/js/initializing#init_stripe_js-options-stripeAccount
+  stripeAccount: stripeConnectedAccountId,
 });
 
 const createProduct = async ({
